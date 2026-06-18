@@ -23,3 +23,93 @@ img {
 body {
   font-size: 1.6rem;
 }
+
+.nav a{
+  background-color: #ffffff;
+  height: 5.2rem;
+  border-bottom: 0.1rem solid #e0ddd5;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav h1 {
+  color: #1a1a1a;
+  font-size: 1.3rem;
+  font-weight: bold 
+  letter-spacing: 0.15rem;
+}
+
+.nav li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2.8;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.6rem 1.6rem;
+  background: #a93226
+  list-style: none 
+}
+
+.reserva {
+background-color: #c0392b;
+color: #ffffff
+
+
+}
+
+.zona {
+background-color: #000000;
+padding-block-start: 6.4rem;
+padding-inline-start: 3.2rem;
+display: flex;
+align-items: center;
+flex-basis: 50%;
+}
+
+.h1 {
+  color: #ffffff;
+  font-size: 3.6rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1.4rem;
+}
+
+.parrafo {
+  color: #888888;
+  font-size: 1.3rem;
+  max-width: 34rem;
+  margin-bottom: 2.8rem;
+
+}
+
+.contenedor_botones {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.reserva_mesa{
+  background-color: transparent;
+  border: 0.1rem solid rgba(255, 255, 255, 0.2);
+  color: #cccccc;
+  font-size: 1.2rem;
+  padding: 1rem 1.8rem;
+  border-radius: 0.6rem;
+}
+
+.conrtenedor_seccion{
+  background-color: #ffffff;
+  padding: 4.8rem;
+}
+
+.encabezado_seccion{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+  
+}
