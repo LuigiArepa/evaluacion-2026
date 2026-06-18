@@ -1,12 +1,33 @@
 /* =====================================================
    styles.css — TAWENO SUSHI
-   Completa los estilos según el mockup adjunto
+   Estilos basados en la Guía de Estilos oficial
    ===================================================== */
 
-/* Reset base */
+/* Variables de Color (Sección 7 - Resumen de colores) */
+:root {
+  --rojo-principal: #c0392b;
+  --rojo-hover: #a93226;
+  --negro-hero: #000000;
+  --negro-footer: #111111;
+  --negro-texto: #1a1a1a;
+  --negro-barra-pie: #222222;
+  --blanco: #ffffff;
+  --fondo-base: #f9f8f5;
+  --fondo-alternativo: #f2f0eb;
+  --borde-general: #e0ddd5;
+  --texto-medio: #555555;
+  --texto-suave: #888888;
+  --texto-footer: #666666;
+  --titulos-footer: #999999;
+  --copyright-redes: #444444;
+  --btn-secundario: #cccccc;
+}
+
+/* Reset base y Tipografía */
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
 }
 
 *,
@@ -15,101 +36,780 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.6rem;
+  background-color: var(--fondo-base);
+  color: var(--negro-texto);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
 img {
   max-width: 100%;
+  display: block;
 }
 
-/* Tu código va aquí */
-body {
-  font-size: 1.6rem;
+/* Estructura Centrada Común */
+.seccion-contenido {
+  width: 140rem;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-.nav a{
-  background-color: #ffffff;
+/* Secciones Generales */
+.seccion {
+  padding: 4.8rem 3.2rem;
+  width: 100%;
+}
+
+/* =====================================================
+   1. Header & Navbar
+   ===================================================== */
+.navbar {
+  background-color: var(--blanco);
+  border-bottom: 0.1rem solid var(--borde-general);
   height: 5.2rem;
-  border-bottom: 0.1rem solid #e0ddd5;
-  padding-left: 3.2rem;
-  padding-right: 3.2rem;
+  width: 100%;
+}
+
+.navbar-contenido {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
 }
 
-.nav h1 {
-  color: #1a1a1a;
+/* Logo */
+.logo {
+  color: var(--negro-texto);
   font-size: 1.3rem;
-  font-weight: bold 
+  font-weight: 700;
   letter-spacing: 0.15rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
 }
 
-.nav li{
+.logo:hover {
+  opacity: 0.8;
+}
+
+/* Lista de enlaces */
+.nav-enlaces {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 2.8;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-enlaces li {
+  margin-right: 2.8rem;
+}
+
+.nav-enlaces li:last-child {
+  margin-right: 0;
+}
+
+.nav-enlaces a {
   font-size: 1.2rem;
-  font-weight: bold;
+  color: var(--texto-medio);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-enlaces a:hover {
+  color: var(--rojo-principal);
+}
+
+/* Botón Reservar */
+.btn-reservar {
+  background-color: var(--rojo-principal);
+  color: var(--blanco);
+  font-size: 1.1rem;
+  font-weight: 700;
   padding: 0.6rem 1.6rem;
-  background: #a93226
-  list-style: none 
+  border-radius: 0.6rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
-.reserva {
-background-color: #c0392b;
-color: #ffffff
-
-
+.btn-reservar:hover {
+  background-color: var(--rojo-hover);
+  transform: translateY(-0.1rem);
 }
 
-.zona {
-background-color: #000000;
-padding-block-start: 6.4rem;
-padding-inline-start: 3.2rem;
-display: flex;
-align-items: center;
-flex-basis: 50%;
+.btn-reservar:active {
+  transform: translateY(0);
 }
 
-.h1 {
-  color: #ffffff;
-  font-size: 3.6rem;
-  font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 1.4rem;
+/* =====================================================
+   1.2 Header Info - Hero
+   ===================================================== */
+.hero {
+  background-color: var(--negro-hero);
+  padding: 6.4rem 0;
+  width: 100%;
 }
 
-.parrafo {
-  color: #888888;
-  font-size: 1.3rem;
-  max-width: 34rem;
-  margin-bottom: 2.8rem;
-
-}
-
-.contenedor_botones {
+.hero-contenido {
   display: flex;
   align-items: center;
-  margin-right: 1rem;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
 }
 
-.reserva_mesa{
+.hero-texto {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Etiqueta superior (pill) */
+.pill {
+  color: var(--rojo-principal);
+  border: 0.1rem solid rgba(192, 57, 43, 0.5);
+  font-size: 1rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+/* Título H1 */
+.hero-texto h1 {
+  color: var(--blanco);
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1.4rem 0;
+}
+
+.h1-highlight {
+  color: var(--rojo-principal);
+}
+
+/* Párrafo descriptivo */
+.hero-descripcion {
+  color: var(--texto-suave);
+  font-size: 1.3rem;
+  line-height: 1.8;
+  max-width: 34rem;
+  margin: 0 0 2.8rem 0;
+}
+
+/* Contenedor de botones */
+.hero-botones {
+  display: flex;
+  align-items: center;
+}
+
+/* Botón primario */
+.btn-primario {
+  background-color: var(--rojo-principal);
+  color: var(--blanco);
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1rem 2.2rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  margin-right: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.btn-primario:hover {
+  background-color: var(--rojo-hover);
+  transform: translateY(-0.1rem);
+}
+
+/* Botón secundario */
+.btn-secundario {
   background-color: transparent;
   border: 0.1rem solid rgba(255, 255, 255, 0.2);
-  color: #cccccc;
+  color: var(--btn-secundario);
   font-size: 1.2rem;
   padding: 1rem 1.8rem;
   border-radius: 0.6rem;
+  text-decoration: none;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
-.conrtenedor_seccion{
-  background-color: #ffffff;
-  padding: 4.8rem;
+.btn-secundario:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--blanco);
+  transform: translateY(-0.1rem);
 }
 
-.encabezado_seccion{
+/* =====================================================
+   2. Nuestro menú
+   ===================================================== */
+.seccion-menu {
+  background-color: var(--blanco);
+}
+
+.menu-encabezado {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 2.8rem;
-  
+}
+
+.etiqueta-superior {
+  color: var(--rojo-principal);
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+.menu-encabezado h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.enlace-ver-todos {
+  color: var(--texto-medio);
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-bottom: 0.1rem solid var(--borde-general);
+  transition: color 0.3s ease, border-color 0.3s ease;
+  padding-bottom: 0.2rem;
+}
+
+.enlace-ver-todos:hover {
+  color: var(--rojo-principal);
+  border-color: var(--rojo-principal);
+}
+
+/* Fila de tarjetas */
+.tarjetas-fila {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.tarjeta-producto {
+  flex-basis: calc(25% - 2.1rem);
+  margin-right: 2.8rem;
+  background-color: var(--blanco);
+  border: 0.1rem solid var(--borde-general);
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-producto:last-child {
+  margin-right: 0;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-0.4rem);
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-img {
+  height: 20rem;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tarjeta-producto:hover .tarjeta-img {
+  transform: scale(1.03);
+}
+
+.tarjeta-info {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.tarjeta-info h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem 0;
+}
+
+.tarjeta-descripcion {
+  font-size: 1.1rem;
+  color: var(--texto-medio);
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  flex-grow: 1;
+}
+
+.tarjeta-pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.tarjeta-precio {
+  color: var(--rojo-principal);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.btn-agregar {
+  background-color: var(--negro-texto);
+  color: var(--blanco);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-agregar:hover {
+  background-color: var(--rojo-principal);
+  transform: scale(1.1);
+}
+
+.btn-agregar:active {
+  transform: scale(1);
+}
+
+/* =====================================================
+   3. Los más pedidos
+   ===================================================== */
+.seccion-pedidos {
+  background-color: var(--fondo-alternativo);
+  border-top: 0.1rem solid var(--borde-general);
+  border-bottom: 0.1rem solid var(--borde-general);
+}
+
+.pedidos-contenido {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.pedidos-introduccion {
+  flex-basis: 28rem;
+  flex-shrink: 0;
+  margin-right: 4.8rem;
+}
+
+.pedidos-introduccion h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+}
+
+.pedidos-introduccion p {
+  font-size: 1.2rem;
+  color: var(--texto-medio);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.pedidos-lista {
+  flex-basis: 1;
+  flex: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pedido-item {
+  display: flex;
+  align-items: center;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 0.1rem solid var(--borde-general);
+}
+
+.pedido-item:last-child {
+  border-bottom: none;
+}
+
+.pedido-img {
+  width: 5.2rem;
+  height: 5.2rem;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  margin-right: 1.4rem;
+}
+
+.pedido-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pedido-nombre {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--negro-texto);
+  margin-bottom: 0.4rem;
+}
+
+.pedido-descripcion {
+  font-size: 1.1rem;
+  color: var(--texto-medio);
+}
+
+.pedido-meta {
+  margin-left: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.pedido-precio {
+  color: var(--rojo-principal);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.pedido-conteo {
+  font-size: 1rem;
+  color: var(--texto-medio);
+}
+
+/* =====================================================
+   4. Sobre nosotros
+   ===================================================== */
+.seccion-nosotros {
+  background-color: var(--blanco);
+}
+
+.nosotros-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nosotros-texto {
+  flex-basis: 45%;
+}
+
+.nosotros-texto h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 1.6rem 0;
+}
+
+.nosotros-texto p {
+  font-size: 1.3rem;
+  color: var(--texto-medio);
+  line-height: 1.8;
+  margin: 0 0 1.2rem 0;
+}
+
+.nosotros-texto p:last-child {
+  margin-bottom: 0;
+}
+
+/* Panel de estadísticas */
+.nosotros-stats {
+  flex-basis: 45%;
+  border: 0.1rem solid var(--borde-general);
+  border-radius: 1rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.02);
+}
+
+.stat-item {
+  flex-basis: 33.33%;
+  background-color: var(--blanco);
+  padding: 2rem 1.6rem;
+  text-align: center;
+  border-right: 0.1rem solid var(--borde-general);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-num {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--negro-texto);
+  display: block;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--texto-medio);
+  margin-top: 0.4rem;
+  display: block;
+}
+
+/* =====================================================
+   5. Contacto
+   ===================================================== */
+.seccion-contacto {
+  background-color: var(--fondo-alternativo);
+  border-top: 0.1rem solid var(--borde-general);
+}
+
+.contacto-contenido {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.contacto-info {
+  flex-basis: 40%;
+}
+
+.contacto-info h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 1.6rem 0;
+}
+
+.contacto-info p {
+  font-size: 1.3rem;
+  color: var(--texto-medio);
+  line-height: 1.8;
+  margin: 0 0 2.4rem 0;
+}
+
+.contacto-datos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacto-datos li {
+  font-size: 1.2rem;
+  color: var(--texto-medio);
+  margin-bottom: 1rem;
+}
+
+.contacto-datos li:last-child {
+  margin-bottom: 0;
+}
+
+.contacto-datos a {
+  color: var(--rojo-principal);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contacto-datos a:hover {
+  color: var(--rojo-hover);
+}
+
+/* Tarjeta del formulario */
+.contacto-formulario-tarjeta {
+  flex-basis: 50%;
+  background-color: var(--blanco);
+  border: 0.1rem solid var(--borde-general);
+  border-radius: 1rem;
+  padding: 2.4rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.03);
+}
+
+.contacto-formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.campo-grupo label {
+  font-size: 1.1rem;
+  color: var(--texto-medio);
+  margin-bottom: 0.4rem;
+}
+
+.campo-grupo input,
+.campo-grupo textarea {
+  background-color: var(--fondo-base);
+  border: 0.1rem solid var(--borde-general);
+  border-radius: 0.6rem;
+  padding: 0.9rem 1.2rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  width: 100%;
+  color: var(--negro-texto);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo-grupo input:focus,
+.campo-grupo textarea:focus {
+  outline: none;
+  border-color: var(--rojo-principal);
+  box-shadow: 0 0 0.4rem rgba(192, 57, 43, 0.15);
+}
+
+.btn-enviar {
+  background-color: var(--rojo-principal);
+  color: var(--blanco);
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.6rem;
+  width: 100%;
+  margin-top: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-enviar:hover {
+  background-color: var(--rojo-hover);
+  transform: translateY(-0.1rem);
+}
+
+.btn-enviar:active {
+  transform: translateY(0);
+}
+
+/* =====================================================
+   6. Footer
+   ===================================================== */
+.footer {
+  background-color: var(--negro-footer);
+  padding: 3.6rem 3.2rem 2rem;
+  width: 100%;
+}
+
+.footer-contenido {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-columnas {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+}
+
+.footer-col-marca {
+  flex-basis: 35%;
+}
+
+.footer-col-marca h3 {
+  color: var(--blanco);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 1.2rem 0;
+  letter-spacing: 0.05rem;
+}
+
+.footer-col-marca p {
+  color: var(--texto-footer);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  margin: 0;
+}
+
+.footer-col-nav {
+  flex-basis: 18%;
+}
+
+.footer-col-nav h4 {
+  color: var(--titulos-footer);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 0 1.2rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.footer-col-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col-nav li {
+  font-size: 1.1rem;
+  color: var(--texto-footer);
+  line-height: 1.9;
+}
+
+.footer-col-nav a {
+  color: var(--texto-footer);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col-nav a:hover {
+  color: var(--blanco);
+}
+
+/* Barra inferior */
+.footer-barra-inferior {
+  border-top: 0.1rem solid var(--negro-barra-pie);
+  padding-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyright {
+  font-size: 1rem;
+  color: var(--copyright-redes);
+  margin: 0;
+}
+
+.redes-sociales {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.redes-sociales li {
+  margin-right: 1.6rem;
+}
+
+.redes-sociales li:last-child {
+  margin-right: 0;
+}
+
+.redes-sociales a {
+  font-size: 1rem;
+  color: var(--copyright-redes);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.redes-sociales a:hover {
+  color: var(--blanco);
 }
